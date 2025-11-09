@@ -25,17 +25,6 @@ const Dashboard = () => {
       setAlarmTime('');
     }
   };
-  <script>
-  const firebaseConfig = {
-  apiKey: "AIzaSyDyqGNkL8SVFuO-S47tWqfyrzNUL8RqllM",
-  authDomain: "medisync-a23db.firebaseapp.com",
-  projectId: "medisync-a23db",
-  storageBucket: "medisync-a23db.firebasestorage.app",
-  messagingSenderId: "357595054353",
-  appId: "1:357595054353:web:bed859ce5785351ec00cb0",
-  measurementId: "G-13E8X5QH5S"
-};
-    </script>
 
   const trackers = [
     { name: 'Health Tracker', color: 'bg-health', path: '/health-tracker', rotation: -60 },

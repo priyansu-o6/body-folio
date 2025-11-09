@@ -1,80 +1,73 @@
-Welcome to Body-Folio
+# Welcome to your Lovable project
 
 ## Project info
 
+**URL**: https://lovable.dev/projects/2d13b0f7-76eb-47f5-9c82-1bdf3c2df297
 
+## How can I edit this code?
 
-1. User Authentication (Login)
+There are several ways of editing your application.
 
-Users can log in to access their dashboard and health data.
+**Use Lovable**
 
-Provides a secure entry point for the app (placeholder in current prototype).
+Simply visit the [Lovable Project](https://lovable.dev/projects/2d13b0f7-76eb-47f5-9c82-1bdf3c2df297) and start prompting.
 
-2. Dashboard
+Changes made via Lovable will be committed automatically to this repo.
 
-Displays a summary of the user’s data and options to navigate to other features.
+**Use your preferred IDE**
 
-Acts as the central hub for quick access.
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-3. Add Vitals
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Users can input key health measurements:
+Follow these steps:
 
-Heart Rate (bpm)
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
-SpO2 (%)
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
 
-Blood Pressure (Systolic/Diastolic)
+# Step 3: Install the necessary dependencies.
+npm i
 
-Temperature (°F)
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
+```
 
-Data is stored in the backend.
+**Edit a file directly in GitHub**
 
-Includes a live display of all previously recorded vitals, fetched from the backend.
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-Supports dynamic updates, so the latest vitals are displayed immediately after submission.
+**Use GitHub Codespaces**
 
-4. Device Sync
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-Allows connecting with health devices such as Fitbit, Google Fit, or uploading CSV files.
+## What technologies are used for this project?
 
-Mock sync functionality implemented (logs to console and shows toast notifications).
+This project is built with:
 
-5. API Integration
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-Frontend communicates with backend via REST endpoints:
+## How can I deploy this project?
 
-POST /api/vitals → to save vitals
+Simply open [Lovable](https://lovable.dev/projects/2d13b0f7-76eb-47f5-9c82-1bdf3c2df297) and click on Share -> Publish.
 
-GET /api/vitals → to fetch all vitals
+## Can I connect a custom domain to my Lovable project?
 
-Supports CORS, allowing the frontend (Vite) and backend (Express) to run on different ports.
+Yes, you can!
 
-6. Notifications & Feedback
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-Uses Sonner toast notifications for success or error messages.
-
-Provides immediate feedback on data submission or device sync actions.
-
-7. Health Check
-
-Backend has a /health endpoint returning { status: "ok" }.
-
-Useful to verify server connectivity.
-
-8. Modular & Extensible
-
-Frontend uses React with Vite and a component-based structure:
-
-Components: Header, Card, Dialog, Input, Button, etc.
-
-Pages: AddVitals, Dashboard, Appointments, Reports.
-
-Easy to extend with new features (like appointments, reports, or SOS alerts).
-
-9. Prototype-Ready
-
-Can be run locally on localhost, with both frontend and backend working together.
-
-Ready to demonstrate data entry, storage, and live display.
-
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
