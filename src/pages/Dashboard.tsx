@@ -45,12 +45,12 @@ const Dashboard = () => {
         <div className="max-w-4xl mx-auto mb-12">
           <div className="relative aspect-square max-w-md mx-auto">
             {/* Human Silhouette */}
-            <div className="absolute inset-0 flex items-center justify-center z-10">
+            <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
               <img src={humanSilhouette} alt="Human body" className="w-48 h-48 object-contain opacity-80" />
             </div>
 
             {/* Pie Chart Slices */}
-            <svg viewBox="0 0 200 200" className="w-full h-full animate-scale-in">
+            <svg viewBox="0 0 200 200" className="w-full h-full animate-scale-in relative z-0">
               {trackers.map((tracker, index) => {
                 const rotation = tracker.rotation;
                 const nextRotation = trackers[(index + 1) % trackers.length].rotation;
@@ -58,8 +58,9 @@ const Dashboard = () => {
                 return (
                   <g
                     key={tracker.name}
-                    className="cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
+                    className="cursor-pointer transition-all duration-300 hover:opacity-90"
                     onClick={() => navigate(tracker.path)}
+                    style={{ cursor: 'pointer' }}
                   >
                     <path
                       d={`M 100 100 L ${100 + 80 * Math.cos((rotation * Math.PI) / 180)} ${100 + 80 * Math.sin((rotation * Math.PI) / 180)} A 80 80 0 0 1 ${100 + 80 * Math.cos((nextRotation * Math.PI) / 180)} ${100 + 80 * Math.sin((nextRotation * Math.PI) / 180)} Z`}
