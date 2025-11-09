@@ -38,9 +38,12 @@ All colors MUST be HSL.
 
     --radius: 1rem;
     
-    --health-green: 145 62% 71%;
-    --medical-pink: 340 77% 81%;
-    --immunity-yellow: 43 85% 62%;
+    --health-green: 145 70% 55%;
+    --health-green-light: 145 70% 65%;
+    --medical-pink: 340 82% 65%;
+    --medical-pink-light: 340 82% 75%;
+    --immunity-yellow: 43 95% 55%;
+    --immunity-yellow-light: 43 95% 65%;
     
     --shadow-soft: 0 2px 8px -2px hsl(220 13% 18% / 0.08);
     --shadow-card: 0 4px 16px -4px hsl(220 13% 18% / 0.12);

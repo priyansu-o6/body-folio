@@ -51,9 +51,31 @@ const Dashboard = () => {
 
             {/* Pie Chart Slices */}
             <svg viewBox="0 0 200 200" className="w-full h-full animate-scale-in relative z-0">
+              <defs>
+                <linearGradient id="healthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: 'hsl(145, 70%, 55%)', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: 'hsl(145, 70%, 65%)', stopOpacity: 1 }} />
+                </linearGradient>
+                <linearGradient id="medicalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: 'hsl(340, 82%, 65%)', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: 'hsl(340, 82%, 75%)', stopOpacity: 1 }} />
+                </linearGradient>
+                <linearGradient id="immunityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: 'hsl(43, 95%, 55%)', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: 'hsl(43, 95%, 65%)', stopOpacity: 1 }} />
+                </linearGradient>
+                <filter id="sliceShadow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.3" />
+                </filter>
+              </defs>
               {trackers.map((tracker, index) => {
                 const rotation = tracker.rotation;
                 const nextRotation = trackers[(index + 1) % trackers.length].rotation;
+                const gradientMap: { [key: string]: string } = {
+                  'bg-health': 'url(#healthGradient)',
+                  'bg-medical': 'url(#medicalGradient)',
+                  'bg-immunity': 'url(#immunityGradient)'
+                };
                 
                 return (
                   <g
@@ -64,8 +86,8 @@ const Dashboard = () => {
                   >
                     <path
                       d={`M 100 100 L ${100 + 80 * Math.cos((rotation * Math.PI) / 180)} ${100 + 80 * Math.sin((rotation * Math.PI) / 180)} A 80 80 0 0 1 ${100 + 80 * Math.cos((nextRotation * Math.PI) / 180)} ${100 + 80 * Math.sin((nextRotation * Math.PI) / 180)} Z`}
-                      className={tracker.color.replace('bg-', 'fill-')}
-                      opacity="0.7"
+                      fill={gradientMap[tracker.color]}
+                      filter="url(#sliceShadow)"
                     />
                   </g>
                 );
@@ -83,11 +105,12 @@ const Dashboard = () => {
                 return (
                   <div
                     key={tracker.name}
-                    className="absolute text-xs font-medium text-foreground"
+                    className="absolute text-base font-bold text-foreground drop-shadow-lg"
                     style={{
                       left: `${x}%`,
                       top: `${y}%`,
-                      transform: 'translate(-50%, -50%)'
+                      transform: 'translate(-50%, -50%)',
+                      textShadow: '0 2px 4px rgba(0, 0, 0, 0.3), 0 0 8px rgba(255, 255, 255, 0.8)'
                     }}
                   >
                     {tracker.name.split(' ')[0]}
